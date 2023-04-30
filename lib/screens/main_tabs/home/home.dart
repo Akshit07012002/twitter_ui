@@ -13,9 +13,7 @@ class _HomeState extends State<Home> {
     var theme = ValueNotifier(ThemeMode.dark);
   @override
   Widget build(BuildContext context) {
-    return ValueListenableBuilder<ThemeMode>(
-      valueListenable: theme,
-      builder: (context, value, child) => DefaultTabController(
+    return DefaultTabController(
         length: 2,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
@@ -47,7 +45,6 @@ class _HomeState extends State<Home> {
             ),
           ],
         ),
-      ),
     );
   }
 }
