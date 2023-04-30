@@ -10,7 +10,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-    var theme = ValueNotifier(ThemeMode.dark);
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -24,6 +23,7 @@ class _HomeState extends State<Home> {
                 dividerColor: Colors.white,
                 indicatorSize: TabBarIndicatorSize.label,
                 labelColor: Colors.black,
+                physics: BouncingScrollPhysics(),
                 tabs: [
                   Tab(
                     child: Text('For you'),

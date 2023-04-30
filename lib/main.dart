@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:twitter_ui/screens/bottomnavbar.dart';
 import 'package:twitter_ui/screens/main_tabs/home/home.dart';
+import 'package:twitter_ui/services/mongoConnect.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await MongoDatabase.connect();
   runApp(const MyApp());
 }
 
