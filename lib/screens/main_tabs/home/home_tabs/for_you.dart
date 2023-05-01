@@ -16,12 +16,12 @@ class _ForYouState extends State<ForYou> {
       onRefresh: () {
         return Future.delayed(
           const Duration(seconds: 1),
-          () {
+          () async {
+            await MongoDatabase.getDocuments();
             setState(() {
               // ignore: avoid_print
               print('Refreshed');
             });
-            
           },
         );
       },

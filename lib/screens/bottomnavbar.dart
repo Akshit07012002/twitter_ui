@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_speed_dial/flutter_speed_dial.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:twitter_ui/screens/auth/signup.dart';
 import 'package:twitter_ui/screens/main_tabs/home/home.dart';
 import 'package:twitter_ui/screens/main_tabs/inbox/inbox.dart';
 import 'package:twitter_ui/screens/main_tabs/notifications/notifications.dart';
@@ -39,11 +40,20 @@ class _BottomNavBarState extends State<BottomNavBar> {
         // toolbarHeight: height * 0.12,
         elevation: 0,
         backgroundColor: Colors.white,
-        leading: Padding(
-          padding: EdgeInsets.all(width * 0.03),
-          child: CircleAvatar(
-            child: FlutterLogo(
-              size: width * 0.04,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => const SignUp(),
+              ),
+            );
+          },
+          child: Padding(
+            padding: EdgeInsets.all(width * 0.03),
+            child: CircleAvatar(
+              child: FlutterLogo(
+                size: width * 0.04,
+              ),
             ),
           ),
         ),

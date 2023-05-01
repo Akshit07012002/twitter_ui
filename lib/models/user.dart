@@ -1,5 +1,7 @@
+import 'package:mongo_dart/mongo_dart.dart';
+
 class Users {
-  int? userID;
+  ObjectId? userID;
   String? fname;
   String? lname;
   String? username;
