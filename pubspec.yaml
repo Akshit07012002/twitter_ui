@@ -39,6 +39,7 @@ dependencies:
   font_awesome_flutter: ^10.4.0
   mongo_dart: ^0.9.1
   random_password_generator: ^0.2.1
+  objectid: ^2.1.0
 
 dev_dependencies:
   flutter_test:

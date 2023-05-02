@@ -10,7 +10,7 @@ class MongoDatabase {
   // String host = Platform.environment['MONGO_DART_DRIVER_HOST'] ?? '127.0.0.1';
   // String port = Platform.environment['MONGO_DART_DRIVER_PORT'] ?? '27017';
   static var postCollection, userCollection;
-  static var userId = RandomPasswordGenerator();
+  
 
   static connect() async {
     var db = await  Db.create(MONGO_CONN_URL);
@@ -25,17 +25,34 @@ class MongoDatabase {
 
   static signup(String fname, String lname, String username, String password, String confirmPassword) async {
     try {
-      var newUserID = userId.randomPassword(letters: true, numbers: true);
-      await userCollection.insertOne({
+      // var userId = RandomPasswordGenerator();
+      var newUserID = ObjectId();
+      // var newUserID = userId.randomPassword(letters: true, numbers: true);
+      print(newUserID);
+      print(fname);
+      print(lname);
+      print(username);
+      print(password);
+      print(confirmPassword);
+      if(password != confirmPassword) {
+        print('Passwords do not match');
+        return;
+      }
+      var result = await userCollection.insertOne({
         'userID': newUserID, 
         'fname': fname,
         'lname': lname,
         'username': username,
         'password': password,
       });
-      print('User added');
+      if(result.isSuccess) {
+        print('User added');
+      } else {
+        print('Some error uploading');
+      }
     } catch (e) {
       print(e);
+      print('Some error');
     }
   }
 

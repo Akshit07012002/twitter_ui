@@ -2,11 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:twitter_ui/screens/bottomnavbar.dart';
 import 'package:twitter_ui/screens/main_tabs/home/home.dart';
 import 'package:twitter_ui/services/mongoConnect.dart';
+import 'package:twitter_ui/screens/error.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await MongoDatabase.connect();
-  runApp(const MyApp());
+  try {
+    await MongoDatabase.connect();
+  } catch (e) {
+    runApp(Error());
+  } finally {
+    runApp(const MyApp());
+  }
 }
 
 class MyApp extends StatelessWidget {
