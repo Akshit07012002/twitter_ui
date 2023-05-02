@@ -56,6 +56,32 @@ class MongoDatabase {
     }
   }
 
+   static createPost(String imageUrl, String caption) async {
+    try {
+      // var userId = RandomPasswordGenerator();
+      var newPostID = ObjectId();
+      // var newUserID = userId.randomPassword(letters: true, numbers: true);
+      print(newPostID);
+      print(imageUrl);
+      print(caption);
+     
+      var result = await postCollection.insertOne({
+        'userID': 0,
+        'postID': newPostID, 
+        'content': imageUrl,
+        'caption': caption,
+        'likes': 0,
+      });
+      if(result.isSuccess) {
+        print('Post added');
+      } else {
+        print('Some error uploading');
+      }
+    } catch (e) {
+      print(e);
+      print('Some error');
+    }
+  }
 
   static Future<List<Map<String, dynamic>>> getDocuments() async {
     try {

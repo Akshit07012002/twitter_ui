@@ -17,8 +17,8 @@ class Posts {
   Posts.fromJson(Map<String, dynamic> json) {
     iId = json['_id'] != null ? Id.fromJson(json['_id']) : null;
     userID = json['userID'];
-    content = json['content'];
-    caption = json['caption'];
+    content = json['content'] ?? '';
+    caption = json['caption'] ?? '';
     likes = json['likes'];
     postID = json['postID'] != null ? Id.fromJson(json['postID']) : null;
   }

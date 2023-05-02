@@ -37,6 +37,7 @@ class _HomeState extends State<Home> {
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.777,
               child: const TabBarView(
+                physics: BouncingScrollPhysics(),
                 children: [
                   ForYou(),
                   Following(),

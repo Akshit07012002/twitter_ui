@@ -8,9 +8,6 @@ import 'package:twitter_ui/screens/main_tabs/inbox/inbox.dart';
 import 'package:twitter_ui/screens/main_tabs/notifications/notifications.dart';
 import 'package:twitter_ui/screens/main_tabs/search/search.dart';
 
-import '../screens/main_tabs/home/home_tabs/following.dart';
-import '../screens/main_tabs/home/home_tabs/for_you.dart';
-
 class BottomNavBar extends StatefulWidget {
   const BottomNavBar({super.key});
 
@@ -64,8 +61,25 @@ class _BottomNavBarState extends State<BottomNavBar> {
         ),
       ),
       floatingActionButton: SpeedDial(
-        animatedIcon: AnimatedIcons.menu_close,
-        animatedIconTheme: const IconThemeData(size: 28.0),
+        // animatedIcon: AnimatedIcons.menu_close,
+        // animatedIconTheme: const IconThemeData(size: 28.0),
+        icon: Icons.add,
+        activeIcon: FontAwesomeIcons.featherPointed,
+          onOpen: () => print('Opening'),
+        // dialRoot: (context, open, toggleChildren) => FloatingActionButton(
+        //   onPressed: () => (!open) ? toggleChildren() :() => Navigator.of(context).push(
+        //     MaterialPageRoute(
+        //       builder: (context) => const SignUp(),
+        //     ),
+        //   ),
+        //   child: const Icon(Icons.add),
+        // ),
+        // onPress: () => (isOpen) ? Navigator.of(context).push(
+        //   MaterialPageRoute(
+        //     builder: (context) => const SignUp(),
+        //   ),
+        // ): toggleChildren(),
+        // closeManually: true,
         backgroundColor: Colors.blue,
         visible: true,
         curve: Curves.bounceInOut,
@@ -101,6 +115,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
             // labelBackgroundColor: Colors.transparent,
           ),
         ],
+        // animatedIcon: AnimatedIcons.menu_close,
+        // animatedIconTheme: const IconThemeData(size: 28.0),
+        // child: const Icon(Icons.add),
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.black,

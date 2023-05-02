@@ -12,6 +12,8 @@ class ForYou extends StatefulWidget {
 class _ForYouState extends State<ForYou> {
   @override
   Widget build(BuildContext context) {
+    
+    double width = MediaQuery.of(context).size.width;
     return RefreshIndicator(
       onRefresh: () {
         return Future.delayed(
@@ -19,7 +21,6 @@ class _ForYouState extends State<ForYou> {
           () async {
             await MongoDatabase.getDocuments();
             setState(() {
-              // ignore: avoid_print
               print('Refreshed');
             });
           },
@@ -49,6 +50,7 @@ class _ForYouState extends State<ForYou> {
               );
             } else {
               return ListView.builder(
+                physics: const BouncingScrollPhysics(),
                   itemCount: snapshot.data?.length,
                   itemBuilder: (context, index) => Card(
                         child: Column(
